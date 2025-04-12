@@ -1,20 +1,22 @@
-import React from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
-import { ShoppingCart, LogOut, UserCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { ThemeContext } from "../context/ThemeContext"; // Import ThemeContext
+import { ShoppingCart, LogOut, UserCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
-  const { currentUser, logout } = useAuth()
-  const navigate = useNavigate()
+  const { currentUser, logout } = useAuth();
+  const { toggleTheme } = useContext(ThemeContext); // Use ThemeContext
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout()
-    navigate("/login")
-  }
+    logout();
+    navigate("/login");
+  };
 
   return (
-    <nav className="bg-bookblue text-white p-4">
+    <nav className="bg-primary text-primary-foreground p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-xl md:text-2xl font-bold">
           BookEase
@@ -27,7 +29,7 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex gap-6 items-center">
-          <Link to="/" className="hover:text-gray-200 transition-colors">
+          <Link to="/" className="hover:text-secondary transition-colors">
             Home
           </Link>
 
@@ -35,13 +37,13 @@ const Navbar = () => {
             <>
               <Link
                 to="/login"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 Login
               </Link>
               <Link
                 to="/register"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 Register
               </Link>
@@ -50,32 +52,32 @@ const Navbar = () => {
             <>
               <Link
                 to="/books"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 Books
               </Link>
               <Link
                 to="/wishlist"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 Wishlist
               </Link>
               <Link
                 to="/orders"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 My Orders
               </Link>
               <Link
                 to="/cart"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 <ShoppingCart className="h-5 w-5" />
               </Link>
               <Button
                 variant="ghost"
                 onClick={handleLogout}
-                className="hover:text-gray-200 transition-colors p-0"
+                className="hover:text-secondary transition-colors p-0"
               >
                 Logout ({currentUser.name})
               </Button>
@@ -84,26 +86,26 @@ const Navbar = () => {
             <>
               <Link
                 to="/dashboard"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 Dashboard
               </Link>
               <Link
                 to="/manage-books"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 My Books
               </Link>
               <Link
                 to="/seller-orders"
-                className="hover:text-gray-200 transition-colors"
+                className="hover:text-secondary transition-colors"
               >
                 Orders
               </Link>
               <Button
                 variant="ghost"
                 onClick={handleLogout}
-                className="hover:text-gray-200 transition-colors p-0"
+                className="hover:text-secondary transition-colors p-0"
               >
                 Logout ({currentUser.name})
               </Button>
@@ -111,32 +113,40 @@ const Navbar = () => {
           ) : (
             <>
               <Link
-                to="/admin-dashboard"
-                className="hover:text-gray-200 transition-colors"
+                to="/admin"
+                className="hover:text-secondary transition-colors"
               >
                 Dashboard
               </Link>
               <Link
-                to="/manage-users"
-                className="hover:text-gray-200 transition-colors"
+                to="/admin/users"
+                className="hover:text-secondary transition-colors"
               >
                 Users
               </Link>
               <Link
-                to="/manage-sellers"
-                className="hover:text-gray-200 transition-colors"
+                to="/admin/sellers"
+                className="hover:text-secondary transition-colors"
               >
                 Sellers
               </Link>
               <Button
                 variant="ghost"
                 onClick={handleLogout}
-                className="hover:text-gray-200 transition-colors p-0"
+                className="hover:text-secondary transition-colors p-0"
               >
                 Logout ({currentUser.name})
               </Button>
             </>
           )}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleTheme}
+            className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+          >
+            Toggle Theme
+          </Button>
         </div>
 
         {/* Mobile menu */}
@@ -144,11 +154,11 @@ const Navbar = () => {
           {currentUser && (
             <>
               {currentUser.role === "user" && (
-                <Link to="/cart" className="text-white">
+                <Link to="/cart" className="text-secondary">
                   <ShoppingCart className="h-5 w-5" />
                 </Link>
               )}
-              <button onClick={handleLogout} className="text-white">
+              <button onClick={handleLogout} className="text-secondary">
                 <LogOut className="h-5 w-5" />
               </button>
             </>
@@ -163,14 +173,22 @@ const Navbar = () => {
                   : "/profile"
                 : "/login"
             }
-            className="text-white"
+            className="text-secondary"
           >
             <UserCircle className="h-6 w-6" />
           </Link>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleTheme}
+            className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+          >
+            Theme
+          </Button>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

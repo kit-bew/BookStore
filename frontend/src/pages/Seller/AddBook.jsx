@@ -1,4 +1,4 @@
-
+// src/pages/Seller/AddBook.jsx
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useStore } from '../../context/StoreContext';
@@ -25,13 +25,13 @@ const AddBook = () => {
   
   if (!currentUser || currentUser.role !== 'seller') {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-background">
         <Navbar />
         <div className="container mx-auto py-12 px-4 text-center">
-          <h1 className="text-3xl font-bold mb-6">Add Book</h1>
-          <p className="text-gray-600 mb-8">You need to be logged in as a seller to access this page</p>
+          <h1 className="text-3xl font-bold mb-6 text-foreground">Add Book</h1>
+          <p className="text-muted-foreground mb-8">You need to be logged in as a seller to access this page</p>
           <Link to="/login">
-            <Button className="bg-bookblue hover:bg-blue-700">Login as Seller</Button>
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Login as Seller</Button>
           </Link>
         </div>
       </div>
@@ -39,7 +39,6 @@ const AddBook = () => {
   }
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
     
     const newBook = {
@@ -58,53 +57,60 @@ const AddBook = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       <div className="container mx-auto py-8 px-4">
-        <Button variant="outline" onClick={() => navigate(-1)} className="mb-6">
+        <Button 
+          variant="outline" 
+          onClick={() => navigate(-1)} 
+          className="mb-6 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+        >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back
         </Button>
         
-        <Card className="max-w-2xl mx-auto">
+        <Card className="max-w-2xl mx-auto bg-card text-card-foreground">
           <CardHeader>
-            <CardTitle className="text-2xl">Add New Book</CardTitle>
+            <CardTitle className="text-2xl text-foreground">Add New Book</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="title">Title</Label>
+                <Label htmlFor="title" className="text-foreground">Title</Label>
                 <Input
                   id="title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="author">Author</Label>
+                <Label htmlFor="author" className="text-foreground">Author</Label>
                 <Input
                   id="author"
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="genre">Genre</Label>
+                <Label htmlFor="genre" className="text-foreground">Genre</Label>
                 <Input
                   id="genre"
                   value={genre}
                   onChange={(e) => setGenre(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="price">Price ($)</Label>
+                <Label htmlFor="price" className="text-foreground">Price ($)</Label>
                 <Input
                   id="price"
                   type="number"
@@ -113,37 +119,43 @@ const AddBook = () => {
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="image">Image URL (optional)</Label>
+                <Label htmlFor="image" className="text-foreground">Image URL (optional)</Label>
                 <div className="flex gap-2">
                   <Input
                     id="image"
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                     placeholder="https://example.com/book-image.jpg"
+                    className="bg-background border-input text-foreground"
                   />
                 </div>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-muted-foreground">
                   Leave empty to use a placeholder image
                 </p>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="description">Description</Label>
+                <Label htmlFor="description" className="text-foreground">Description</Label>
                 <Textarea
                   id="description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows={5}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
               
               <div className="flex justify-end">
-                <Button type="submit" className="bg-bookblue hover:bg-blue-700">
+                <Button 
+                  type="submit" 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
                   Add Book
                 </Button>
               </div>

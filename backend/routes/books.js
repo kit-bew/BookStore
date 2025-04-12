@@ -35,9 +35,7 @@ router.post('/', authMiddleware, async (req, res) => {
     if (req.user.role !== 'seller' && req.user.role !== 'admin') {
       return res.status(403).json({ message: 'Not authorized' });
     }
-
-    const { title, author, genre, description, price, imageUrl } = req.body;
-
+    const { title, author, genre, description, price, imageUrl, sellerName } = req.body;
     const book = new Book({
       title,
       author,
@@ -46,17 +44,15 @@ router.post('/', authMiddleware, async (req, res) => {
       price,
       imageUrl,
       sellerId: req.user.id,
-      sellerName: req.body.sellerName
+      sellerName,
     });
-
     const savedBook = await book.save();
     res.status(201).json(savedBook);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error("Add book error:", error); // Detailed log
+    res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
-
 // Update a book (seller of the book only)
 router.put('/:id', authMiddleware, async (req, res) => {
   try {

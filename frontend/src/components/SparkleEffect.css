@@ -1,0 +1,17 @@
+.star {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 1;
+    will-change: transform, opacity;
+  }
+  
+  .star:before {
+    content: var(--sparkle-shape, '\2726');
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 10px;
+    color: var(--sparkle-color, #ffd700);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  }

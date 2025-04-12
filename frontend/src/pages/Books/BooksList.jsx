@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../../context/StoreContext';
 import BookCard from '../../components/BookCard';
@@ -13,10 +12,8 @@ const BooksList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('all');
   
-  // Get unique genres from books
   const genres = Array.from(new Set(books.map(book => book.genre)));
 
-  // Filter books based on search term and selected genre
   useEffect(() => {
     let filtered = books;
     
@@ -35,13 +32,10 @@ const BooksList = () => {
   }, [searchTerm, selectedGenre, books, setFilteredBooks]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      
       <div className="container mx-auto py-8 px-4">
-        <h1 className="text-3xl font-bold mb-8">Books List</h1>
-        
-        {/* Search and Filter */}
+        <h1 className="text-3xl font-bold mb-8 text-foreground">Books List</h1>
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="flex-1">
             <div className="relative">
@@ -50,18 +44,17 @@ const BooksList = () => {
                 placeholder="Search by title or author..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full"
+                className="w-full bg-background border-input text-foreground"
               />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             </div>
           </div>
-          
           <div className="w-full md:w-64">
             <Select value={selectedGenre} onValueChange={setSelectedGenre}>
-              <SelectTrigger>
+              <SelectTrigger className="bg-background border-input text-foreground">
                 <SelectValue placeholder="Filter by genre" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-card text-card-foreground">
                 <SelectItem value="all">All Genres</SelectItem>
                 {genres.map(genre => (
                   <SelectItem key={genre} value={genre}>
@@ -72,22 +65,21 @@ const BooksList = () => {
             </Select>
           </div>
         </div>
-        
-        {/* Books Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredBooks.length > 0 ? (
             filteredBooks.map(book => (
-              <BookCard key={book.id} book={book} />
+              <BookCard key={book._id} book={book} /> // Fix: _id
             ))
           ) : (
             <div className="col-span-full text-center py-12">
-              <h2 className="text-xl text-gray-500">No books found matching your criteria</h2>
+              <h2 className="text-xl text-muted-foreground">No books found matching your criteria</h2>
               <Button 
                 variant="link" 
                 onClick={() => {
                   setSearchTerm('');
                   setSelectedGenre('all');
                 }}
+                className="text-accent hover:text-accent/80"
               >
                 Clear filters
               </Button>

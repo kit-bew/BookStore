@@ -40,12 +40,12 @@ const Register = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-background">
       <div className="flex-1 flex items-center justify-center py-12">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md bg-card text-card-foreground">
           <CardHeader>
             <CardTitle className="text-2xl text-center">Create an account</CardTitle>
-            <CardDescription className="text-center">
+            <CardDescription className="text-center text-muted-foreground">
               Enter your information to create your account
             </CardDescription>
           </CardHeader>
@@ -60,6 +60,7 @@ const Register = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
 
@@ -72,6 +73,7 @@ const Register = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
 
@@ -84,6 +86,7 @@ const Register = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
 
@@ -96,8 +99,9 @@ const Register = () => {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
-                {passwordError && <p className="text-red-500 text-sm">{passwordError}</p>}
+                {passwordError && <p className="text-destructive text-sm">{passwordError}</p>}
               </div>
 
               <div className="space-y-2">
@@ -120,15 +124,15 @@ const Register = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-bookblue hover:bg-blue-700"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 disabled={isLoading}
               >
                 {isLoading ? 'Creating account...' : 'Register'}
               </Button>
 
-              <p className="text-center text-sm">
+              <p className="text-center text-sm text-muted-foreground">
                 Already have an account?{' '}
-                <Link to="/login" className="text-blue-600 hover:underline">
+                <Link to="/login" className="text-accent hover:underline">
                   Sign in
                 </Link>
               </p>

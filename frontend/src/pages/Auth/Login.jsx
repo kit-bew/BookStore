@@ -21,12 +21,12 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-background">
       <div className="flex-1 flex items-center justify-center">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md bg-card text-card-foreground">
           <CardHeader>
             <CardTitle className="text-2xl text-center">Login to user account</CardTitle>
-            <CardDescription className="text-center">
+            <CardDescription className="text-center text-muted-foreground">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
@@ -41,6 +41,7 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
               <div className="space-y-2">
@@ -52,17 +53,21 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  className="bg-background border-input text-foreground"
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full bg-bookblue hover:bg-blue-700"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 disabled={isLoading}
               >
                 {isLoading ? 'Logging in...' : 'Log in'}
               </Button>
-              <p className="text-center text-sm">
-                Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Sign up</Link>
+              <p className="text-center text-sm text-muted-foreground">
+                Don't have an account?{' '}
+                <Link to="/register" className="text-accent hover:underline">
+                  Sign up
+                </Link>
               </p>
             </form>
           </CardContent>
