@@ -70,7 +70,7 @@ const Wishlist = () => {
                   </Link>
                   <p className="text-sm text-muted-foreground mb-1">Author: {book.author}</p>
                   <p className="text-sm text-muted-foreground mb-1">Genre: {book.genre}</p>
-                  <p className="text-lg font-bold mt-1 mb-4 text-primary">${book.price.toFixed(2)}</p>
+                  <p className="text-lg font-bold mt-1 mb-4 text-primary">₹{book.price.toFixed(2)}</p>
                   <div className="flex gap-2 mt-auto">
                     <Button 
                       variant="outline" 

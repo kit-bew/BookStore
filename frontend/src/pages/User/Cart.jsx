@@ -101,7 +101,7 @@ const Cart = () => {
                         />
                       </TableCell>
                       <TableCell className="font-medium text-foreground">{item.book.title}</TableCell>
-                      <TableCell className="text-muted-foreground">${item.book.price.toFixed(2)}</TableCell>
+                      <TableCell className="text-muted-foreground">₹{item.book.price.toFixed(2)}</TableCell>
                       <TableCell>
                         <div className="flex items-center space-x-2">
                           <Button 
@@ -124,7 +124,7 @@ const Cart = () => {
                         </div>
                       </TableCell>
                       <TableCell className="font-bold text-foreground">
-                        ${(item.book.price * item.quantity).toFixed(2)}
+                      ₹{(item.book.price * item.quantity).toFixed(2)}
                       </TableCell>
                       <TableCell>
                         <Button 

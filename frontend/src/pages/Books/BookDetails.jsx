@@ -77,7 +77,7 @@ const BookDetails = () => {
                   <span className="font-semibold mr-2 text-foreground">Seller:</span>
                   <span className="text-muted-foreground">{book.sellerName}</span>
                 </div>
-                <p className="text-2xl font-bold text-primary my-4">${book.price.toFixed(2)}</p>
+                <p className="text-2xl font-bold text-primary my-4">₹{book.price.toFixed(2)}</p>
                 <p className="text-muted-foreground mb-6">{book.description}</p>
                 {currentUser && currentUser.role === 'user' && (
                   <div className="flex space-x-4">

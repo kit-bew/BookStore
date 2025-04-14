@@ -110,7 +110,7 @@ const AddBook = () => {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="price" className="text-foreground">Price ($)</Label>
+                <Label htmlFor="price" className="text-foreground">Price (₹)</Label>
                 <Input
                   id="price"
                   type="number"

@@ -97,7 +97,7 @@ const SellerDashboard = () => {
                       />
                       <div className="flex-1">
                         <p className="font-medium text-foreground">{book.title}</p>
-                        <p className="text-sm text-muted-foreground">${book.price.toFixed(2)}</p>
+                        <p className="text-sm text-muted-foreground">₹{book.price.toFixed(2)}</p>
                       </div>
                     </div>
                   ))}

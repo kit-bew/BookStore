@@ -4,31 +4,31 @@
 @tailwind utilities;
 
 @layer base {
-  /* Black Theme (Deep Space) */
+  /* Black Theme (Midnight Cosmos) */
   :root, :root.theme-black {
-    --background: 240 10% 4%; /* Deep black-blue */
-    --foreground: 0 0% 95%; /* Soft white */
-    --card: 240 10% 10%; /* Dark gray */
-    --card-foreground: 0 0% 95%;
-    --popover: 240 10% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 200 70% 50%; /* Cyan accent */
-    --primary-foreground: 240 10% 4%;
-    --secondary: 60 70% 50%; /* Warm yellow */
-    --secondary-foreground: 240 10% 4%;
-    --muted: 240 10% 20%;
-    --muted-foreground: 240 10% 60%;
-    --accent: 60 70% 60%;
-    --accent-foreground: 240 10% 4%;
-    --destructive: 0 80% 50%; /* Red */
-    --destructive-foreground: 0 0% 95%;
-    --border: 240 10% 15%;
-    --input: 240 10% 15%;
-    --ring: 200 70% 50%;
+    --background: 240 20% 8%; /* Richer black with subtle blue tint */
+    --foreground: 0 0% 98%; /* Crisp white for contrast */
+    --card: 240 15% 12%; /* Deep charcoal */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 15% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 190 80% 50%; /* Vibrant cyan for buttons */
+    --primary-foreground: 240 20% 8%;
+    --secondary: 50 70% 50%; /* Warm amber glow */
+    --secondary-foreground: 240 20% 8%;
+    --muted: 240 10% 25%;
+    --muted-foreground: 240 10% 65%;
+    --accent: 50 70% 60%;
+    --accent-foreground: 240 20% 8%;
+    --destructive: 0 85% 50%; /* Bold red for errors */
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 15% 20%;
+    --input: 240 15% 20%;
+    --ring: 190 80% 50%;
     --radius: 0.75rem;
   }
 
-  /* Red Theme (Crimson Glow) */
+  /* Red Theme (Crimson Blaze) */
   :root.theme-red {
     --background: 0 80% 10%; /* Deep red */
     --foreground: 0 0% 95%; /* Soft white */
@@ -51,32 +51,31 @@
     --ring: 340 80% 60%;
     --radius: 0.5rem;
   }
-
-  /* Pink Theme (Sakura Bloom) */
+  /* Pink Theme (Sakura Glow) */
   :root.theme-pink {
-    --background: 330 80% 90%; /* Light pink */
-    --foreground: 300 80% 20%; /* Dark purple */
-    --card: 330 80% 95%; /* Lighter pink */
-    --card-foreground: 300 80% 20%;
-    --popover: 330 80% 95%;
-    --popover-foreground: 300 80% 20%;
-    --primary: 300 80% 50%; /* Vibrant purple */
-    --primary-foreground: 0 0% 95%;
-    --secondary: 350 80% 60%; /* Coral */
-    --secondary-foreground: 300 80% 20%;
-    --muted: 330 50% 80%;
-    --muted-foreground: 330 50% 50%;
-    --accent: 350 80% 70%;
-    --accent-foreground: 300 80% 20%;
-    --destructive: 0 80% 50%; /* Red */
-    --destructive-foreground: 0 0% 95%;
-    --border: 330 50% 85%;
-    --input: 330 50% 85%;
-    --ring: 300 80% 50%;
+    --background: 330 70% 85%; /* Vibrant cherry blossom pink */
+    --foreground: 300 80% 15%; /* Deep plum for readability */
+    --card: 330 65% 90%; /* Softer pink for cards */
+    --card-foreground: 300 80% 15%;
+    --popover: 330 65% 90%;
+    --popover-foreground: 300 80% 15%;
+    --primary: 340 80% 55%; /* Bubblegum pink buttons */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 10 70% 60%; /* Warm coral complement */
+    --secondary-foreground: 300 80% 15%;
+    --muted: 330 50% 75%;
+    --muted-foreground: 330 50% 45%;
+    --accent: 10 70% 70%;
+    --accent-foreground: 300 80% 15%;
+    --destructive: 0 80% 50%; /* Red for errors */
+    --destructive-foreground: 0 0% 98%;
+    --border: 330 50% 80%;
+    --input: 330 50% 80%;
+    --ring: 340 80% 55%;
     --radius: 0.6rem;
   }
 
-  /* Purple Theme (Amethyst Dream) */
+  /* Purple Theme (Amethyst Glow) */
   :root.theme-purple {
     --background: 270 190% 10%; /* Deep purple */
     --foreground: 0 0% 95%; /* Soft white */
@@ -121,8 +120,8 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
-.animate-fade-in { animation: fade-in 1s ease-in-out; }
-.animate-slide-up { animation: slide-up 1s ease-in-out; }
+.animate-fade-in { animation: fade-in 0.8s ease-in-out; } /* Slightly faster for polish */
+.animate-slide-up { animation: slide-up 0.8s ease-in-out; }
 
 #root {
   margin: 0 auto;

@@ -46,7 +46,7 @@ const BookCard = ({ book }) => {
           <p className="text-sm text-muted-foreground">Author: {book.author}</p>
           <p className="text-sm text-muted-foreground">Genre: {book.genre}</p>
           <p className="text-lg font-bold mt-2">
-            Price: ${book.price.toFixed(2)}
+            Price: ₹{book.price.toFixed(2)}
           </p>
         </div>
       </div>
