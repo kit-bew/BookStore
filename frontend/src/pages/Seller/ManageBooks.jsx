@@ -77,7 +77,7 @@ const ManageBooks = () => {
                     <TableCell className="text-muted-foreground">{book.genre}</TableCell>
                     <TableCell className="text-foreground">₹{book.price.toFixed(2)}</TableCell>
                     <TableCell className="text-right space-x-2">
-                      <Link to={`/edit-book/${book._id}`}>
+                      <Link to={`/edit-book/{book._id}`}>
                         <Button 
                           variant="outline" 
                           size="sm" 

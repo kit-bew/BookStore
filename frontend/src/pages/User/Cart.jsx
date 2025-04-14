@@ -148,7 +148,7 @@ const Cart = () => {
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal</span>
-                  <span className="text-foreground">${totalAmount.toFixed(2)}</span>
+                  <span className="text-foreground">₹{totalAmount.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Shipping</span>
@@ -158,7 +158,7 @@ const Cart = () => {
               <div className="border-t border-muted pt-4 mb-6">
                 <div className="flex justify-between font-bold text-lg">
                   <span className="text-foreground">Total</span>
-                  <span className="text-foreground">${totalAmount.toFixed(2)}</span>
+                  <span className="text-foreground">₹{totalAmount.toFixed(2)}</span>
                 </div>
               </div>
               {!isCheckingOut ? (
